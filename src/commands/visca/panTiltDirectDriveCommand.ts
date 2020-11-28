@@ -20,11 +20,11 @@ function convertPositionToNumber(n: number) {
 }
 
 export class PanTiltDirectDriveCommand extends ViscaCommand {
-  panSpeed: number
-  tiltSpeed: number
+  panSpeed: number = 0;
+  tiltSpeed: number = 0;
   
-  panPosition: number
-  tiltPosition: number
+  panPosition: number = 0;
+  tiltPosition: number = 0;
 
 	serialize () {
     const buffer = Buffer.alloc(2);

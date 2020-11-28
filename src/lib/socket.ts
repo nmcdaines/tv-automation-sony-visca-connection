@@ -164,7 +164,7 @@ export class ViscaSocket extends EventEmitter {
 			} else {
 				// maybe a inquisition reply?
 				if (this._inFlight.command.deserialize) {
-					this._inFlight.promise.resolve(this._inFlight.command.deserialize(packet.slice(8, 8 + length)))
+					this._inFlight.promise.resolve(this._inFlight.command.deserialize(packet.slice(8, 8 + packet.length)))
 				}
 			}
 		} else if (type === CommandType.ControlReply) {

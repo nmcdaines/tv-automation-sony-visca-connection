@@ -1,17 +1,28 @@
 import { ViscaCommand } from '../abstractCommand'
 
+function hexToBuffer(n: number) {
+  const hexString = parseInt(`${n}`)
+    .toString(16)
+    .padStart(4, '0');
+
+  const hexChars = Array.from(hexString);
+
+  const packet = hexChars.reduce((acc, val) => {
+    return `${acc}0${val}`;
+  }, "");
+
+  return Buffer.from(packet, "hex");
+}
+
+// function minMax(min, max, value) {
+//   return Math.min(min, Math.max(max, value));
+// }
+
 export class ZoomDirectCommand extends ViscaCommand {
-	position: number
+  position: number
 
-	serialize () {
-		const buffer = Buffer.alloc(4)
-		const s = this.position + ''
-
-		buffer[0] = parseInt(s.substr(0, 1), 9)
-		buffer[1] = parseInt(s.substr(1, 1), 9)
-		buffer[2] = parseInt(s.substr(2, 1), 9)
-		buffer[3] = parseInt(s.substr(3, 1), 9)
-
-		return Buffer.from([ 0x80, 0x01, 0x04, 0x47, buffer, 0xff ])
-	}
+  serialize() {
+    const buffer = hexToBuffer((16384 / 10) * this.position);
+    return Buffer.from([0x80, 0x01, 0x04, 0x47, ...buffer, 0xff])
+  }
 }

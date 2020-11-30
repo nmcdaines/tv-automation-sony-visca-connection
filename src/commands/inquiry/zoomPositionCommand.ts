@@ -1,4 +1,5 @@
 import { ViscaInquiryCommand } from '../abstractCommand'
+import { bufferToHex } from '../../core/hex';
 
 export class ZoomPositionCommand extends ViscaInquiryCommand {
 	serialize () {
@@ -6,13 +7,9 @@ export class ZoomPositionCommand extends ViscaInquiryCommand {
 	}
 
 	deserialize (payload: Buffer): number {
-		let val = 0
-
-		val += 1000 * payload[2]
-		val += 100 * payload[3]
-		val += 10 * payload[4]
-		val += 1 * payload[5]
-
-		return val
+		const zoomPayload = payload.slice(2, 6);
+		const zoomHex = bufferToHex(zoomPayload);
+		const zoom = parseInt(zoomHex);
+		return zoom;
 	}
 }

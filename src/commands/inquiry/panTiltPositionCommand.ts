@@ -1,11 +1,5 @@
 import { ViscaInquiryCommand } from "../abstractCommand";
-
-function bufferToHex(p: Buffer) {
-	const chars = Array.from(p.toString("hex"));
-	return chars.reduce((acc, val, index) => {
-		return index % 2 ? `${acc}${val}` : `${acc}`;
-	}, "0x");
-}
+import { bufferToHex } from '../../core/hex';
 
 function convertNumberToPosition(n: number) {
 	const max = 65535;

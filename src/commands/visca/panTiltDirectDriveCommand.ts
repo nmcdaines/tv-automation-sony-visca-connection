@@ -1,18 +1,5 @@
-import { ViscaCommand } from '../abstractCommand'
-
-function hexToBuffer(n: number) {
-  const hexString = parseInt(`${n}`)
-    .toString(16)
-    .padStart(4, n > 32768 ? 'f' : '0');
-
-  const hexChars = Array.from(hexString);
-  
-  const packet = hexChars.reduce((acc, val) => {
-		return `${acc}0${val}`;
-	}, "");
-
-  return Buffer.from(packet, "hex");
-}
+import { ViscaCommand } from '../abstractCommand';
+import { hexToBuffer } from '../../core/hex';
 
 function convertPositionToNumber(n: number) {
 	const max = 65535;

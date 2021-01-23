@@ -14,6 +14,6 @@ export class PanTiltDriveCommand extends ViscaCommand {
 		buffer.writeUInt8(this.tiltSpeed, 1)
 		buffer.writeUInt16BE(this.direction, 2)
 
-		return Buffer.from([ 0x80, 0x01, 0x06, 0x01, buffer, 0xff ])
+		return Buffer.from([ 0x81, 0x01, 0x06, 0x01, buffer, 0xff ])
 	}
 }

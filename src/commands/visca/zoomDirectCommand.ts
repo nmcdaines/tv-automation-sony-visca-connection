@@ -13,6 +13,6 @@ export class ZoomDirectCommand extends ViscaCommand {
 
   serialize() {
     const buffer = hexToBuffer(this.position);
-    return Buffer.from([0x80, 0x01, 0x04, 0x47, ...buffer, 0xff]);
+    return Buffer.from([0x81, 0x01, 0x04, 0x47, ...buffer, 0xff]);
   }
 }

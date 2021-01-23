@@ -141,6 +141,8 @@ export class ViscaSocket extends EventEmitter {
 	}
 
 	private _receivePacket (packet: Buffer, rinfo: any) {
+		this.log('RECV ', packet, rinfo);
+
 		if (this._debug) this.log('RECV ', packet, rinfo)
 		this._lastReceivedAt = Date.now()
 

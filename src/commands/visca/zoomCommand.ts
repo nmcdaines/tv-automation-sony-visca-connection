@@ -10,6 +10,6 @@ export class ZoomCommand extends ViscaCommand {
 
 		if (data > 0x03) data = data + this.speed
 
-		return Buffer.from([ 0x80, 0x01, 0x04, 0x07, data, 0xff ])
+		return Buffer.from([ 0x81, 0x01, 0x04, 0x07, data, 0xff ])
 	}
 }

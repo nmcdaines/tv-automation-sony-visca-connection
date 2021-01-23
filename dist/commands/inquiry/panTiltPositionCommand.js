@@ -10,9 +10,10 @@ function convertNumberToPosition(n) {
 }
 class PanTiltPositionCommand extends abstractCommand_1.ViscaInquiryCommand {
     serialize() {
-        return Buffer.from([0x80, 0x09, 0x06, 0x12, 0xff]);
+        return Buffer.from([0x81, 0x09, 0x06, 0x12, 0xff]);
     }
     deserialize(payload) {
+        console.log(payload);
         // PAN: MIN/MAX = -2978/372
         // TILT: MIN/MAX = -1880/2216
         const panPayload = payload.slice(2, 6);

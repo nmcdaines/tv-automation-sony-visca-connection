@@ -107,6 +107,7 @@ class ViscaSocket extends events_1.EventEmitter {
         this._socket.on('close', () => this.emit('disconnect'));
     }
     _receivePacket(packet, rinfo) {
+        this.log('RECV ', packet, rinfo);
         if (this._debug)
             this.log('RECV ', packet, rinfo);
         this._lastReceivedAt = Date.now();

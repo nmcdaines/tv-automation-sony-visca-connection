@@ -23,7 +23,7 @@ class PanTiltDirectDriveCommand extends abstractCommand_1.ViscaCommand {
         const panHex = hex_1.hexToBuffer(panValue);
         const tiltValue = convertPositionToNumber(this.tiltPosition);
         const tiltHex = hex_1.hexToBuffer(tiltValue);
-        return Buffer.from([0x80, 0x01, 0x06, 0x02, ...buffer, ...panHex, ...tiltHex, 0xff]);
+        return Buffer.from([0x81, 0x01, 0x06, 0x02, ...buffer, ...panHex, ...tiltHex, 0xff]);
     }
 }
 exports.PanTiltDirectDriveCommand = PanTiltDirectDriveCommand;

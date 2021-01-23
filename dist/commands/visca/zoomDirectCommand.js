@@ -12,7 +12,7 @@ const hex_1 = require("../../core/hex");
 class ZoomDirectCommand extends abstractCommand_1.ViscaCommand {
     serialize() {
         const buffer = hex_1.hexToBuffer(this.position);
-        return Buffer.from([0x80, 0x01, 0x04, 0x47, ...buffer, 0xff]);
+        return Buffer.from([0x81, 0x01, 0x04, 0x47, ...buffer, 0xff]);
     }
 }
 exports.ZoomDirectCommand = ZoomDirectCommand;

@@ -5,7 +5,7 @@ const abstractCommand_1 = require("../abstractCommand");
 const hex_1 = require("../../core/hex");
 class ZoomPositionCommand extends abstractCommand_1.ViscaInquiryCommand {
     serialize() {
-        return Buffer.from([0x80, 0x09, 0x04, 0x47, 0xff]);
+        return Buffer.from([0x81, 0x09, 0x04, 0x47, 0xff]);
     }
     deserialize(payload) {
         const zoomPayload = payload.slice(2, 6);
